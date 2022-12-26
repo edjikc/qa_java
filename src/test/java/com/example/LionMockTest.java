@@ -19,8 +19,8 @@ public class LionMockTest {
     Feline feline;
 
     @Test
-    public void getKittens() {
-        Lion lion = new Lion(feline);
+    public void getKittens() throws Exception {
+        Lion lion = new Lion("Самец", feline);
         when(feline.getKittens()).thenReturn(1);
         int kittens = lion.getKittens();
         Assert.assertEquals(kittens, 1);
@@ -28,7 +28,7 @@ public class LionMockTest {
 
     @Test
     public void getFood() throws Exception {
-        Lion lion = new Lion(feline);
+        Lion lion = new Lion("Самец",feline);
         List<String> strings = Arrays.asList("Рыба", "Мясо");
         when(feline.getFood("Хищник")).thenReturn(strings);
         Assert.assertEquals(lion.getFood(), strings);
